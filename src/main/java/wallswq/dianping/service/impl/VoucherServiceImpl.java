@@ -3,6 +3,7 @@ package wallswq.dianping.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import wallswq.dianping.domian.Result;
 import wallswq.dianping.domian.po.SeckillVoucher;
 import wallswq.dianping.domian.po.Voucher;
@@ -23,6 +24,7 @@ public class VoucherServiceImpl extends ServiceImpl<VoucherMapper, Voucher> impl
         return Result.ok(vouchers);
     }
 
+    @Transactional
     @Override
     public void addKillVoucher(Voucher voucher) {
         save(voucher);

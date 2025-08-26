@@ -3,12 +3,15 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
 import jakarta.annotation.Resource;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import wallswq.dianping.domian.Result;
 import wallswq.dianping.domian.po.SeckillVoucher;
 import wallswq.dianping.domian.po.Shop;
 import wallswq.dianping.domian.po.Voucher;
+import wallswq.dianping.service.ISeckillVoucherService;
 import wallswq.dianping.service.IVoucherService;
+import wallswq.dianping.service.impl.SeckillVoucherServiceImpl;
 
 import java.util.List;
 
@@ -20,6 +23,8 @@ import java.util.List;
 public class VoucherController {
     @Resource
     private IVoucherService voucherService;
+    @Autowired
+    private ISeckillVoucherService seckillVoucherService;
 
     @GetMapping("/list/{shopId}")
     public Result list(@PathVariable Long shopId) {
